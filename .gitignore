@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+
+# Environment
+venv/
+.env
+
+# IDE & OS files
+.DS_Store
+.vscode/
+
+# Model and data files (optional)
+*.joblib
+*.pkl
+*.npy
+*.csv
