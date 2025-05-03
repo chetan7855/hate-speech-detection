@@ -24,12 +24,6 @@ This project uses Natural Language Processing (NLP) and Machine Learning to dete
 
 ---
 
-## 📸 Demo
-
-<img src="https://user-images.githubusercontent.com/chetan7855/demo.gif" width="600"/>
-
----
-
 ## 🚀 Features
 
 | Feature                  | Description                                         |
