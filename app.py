@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, jsonify
 import joblib
 import numpy as np
 import speech_recognition as sr
+import os
 
 app = Flask(__name__)
 
@@ -12,7 +13,7 @@ vectorizer = joblib.load("tfidf_vectorizer.pkl")
 def predict_hate_speech(text):
     text_vectorized = vectorizer.transform([text])
     prediction = model.predict(text_vectorized)[0]
-    probability = model.predict_proba(text_vectorized)[0][1]  # Probability of hate speech
+    probability = model.predict_proba(text_vectorized)[0][1]
     return prediction, probability
 
 @app.route("/")
@@ -50,4 +51,5 @@ def speech_to_text():
         return jsonify({"error": "Speech recognition service unavailable"}), 500
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=True)
